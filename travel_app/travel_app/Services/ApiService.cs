@@ -9,24 +9,30 @@ namespace travel_app.Services
 {
     public class ApiService
     {
-        private readonly string _baseUrl = "http://192.168.76.142:4000/api/v1/";
-
+        private static readonly HttpClient _client = new HttpClient();
+        private readonly string _baseUrl = "http://192.168.0.6:4000/api/v1/";
         // Método genérico para obtener datos desde la API
         public async Task<T> GetAsync<T>(string endpoint)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                var response = await client.GetAsync(_baseUrl + endpoint);
+                var response = await _client.GetAsync(_baseUrl + endpoint);
 
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<T>(json);
+                    return JsonConvert.DeserializeObject<T>(json); // Deserialización del tipo esperado
                 }
 
                 throw new Exception($"Error: {response.StatusCode}, Message: {response.ReasonPhrase}");
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al realizar la solicitud: {ex.Message}");
+                throw; // Lanzar la excepción para que el manejo ocurra en el lugar adecuado
+            }
         }
+
 
         // Método genérico para enviar datos a la API (POST)
         public async Task<T> PostAsync<T>(string endpoint, object data)

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="travel_app.Views.DetalleHotel"
+             xmlns:vm="clr-namespace:travel_app.ViewModels" 
+             xmlns:local="clr-namespace:travel_app.Converters"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:DetalleHotelViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StarVisibilityConverter x:Key="StarVisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <CollectionView ItemsSource="{Binding Hoteles}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Spacing="5">
+                    <Image Source="{Binding Imagen}" Aspect="AspectFill" HeightRequest="200" WidthRequest="300"/>
+                    <StackLayout Padding="20">
+                        <Label Text="{Binding Nombre}"/>
+                        <StackLayout Orientation="Horizontal" Spacing="2">
+                            <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=1}" HeightRequest="20" WidthRequest="20"/>
+                            <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=2}" HeightRequest="20" WidthRequest="20"/>
+                            <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=3}" HeightRequest="20" WidthRequest="20"/>
+                            <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=4}" HeightRequest="20" WidthRequest="20"/>
+                            <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=5}" HeightRequest="20" WidthRequest="20"/>
+                            <Label Text="{Binding Valoracion}"/>
+                        </StackLayout>
+                        <Label Text="{Binding Direccion}"/>
+                    </StackLayout>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+</ContentPage>

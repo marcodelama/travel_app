@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using travel_app.Models;
@@ -30,19 +32,25 @@ namespace travel_app.ViewModels
         {
             try
             {
-                // Llamada al servicio que obtiene las reservas del usuario
-                var reservas = await _apiService.GetAsync<List<Hotel>>("hoteles");
+                var responseObject = await _apiService.GetAsync<ResponseWrapper<Hotel>>("hoteles");
 
-                Hoteles.Clear();
-                foreach (var reserva in reservas)
+                if (responseObject != null && responseObject.Data != null)
                 {
-                    Hoteles.Add(reserva);
+                    Hoteles.Clear(); // Limpia la colección existente
+                    foreach (var hotel in responseObject.Data)
+                    {
+                        Hoteles.Add(hotel); // Agrega los hoteles a la colección
+                        Console.WriteLine($"Hotel agregado: {hotel.Nombre}");
+                    }
                 }
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
-                // Manejo de errores
-                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                Console.WriteLine($"Error al obtener hoteles: {ex.Message}");
+            }
+            catch (JsonException jsonEx)
+            {
+                Console.WriteLine($"Error al deserializar JSON: {jsonEx.Message}");
             }
         }
     }

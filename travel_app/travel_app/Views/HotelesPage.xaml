@@ -1,34 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:travel_app.ViewModels"
-             x:Class="travel_app.Views.HotelesPage">
+             xmlns:vm="clr-namespace:travel_app.ViewModels" 
+             xmlns:local="clr-namespace:travel_app.Converters"
+             x:Class="travel_app.Views.HotelesPage"
+             NavigationPage.HasNavigationBar="False">
 
-    <CollectionView ItemsSource="{Binding Hoteles}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Grid Padding="10">
-                    <!-- Imagen del hotel -->
-                    <Frame Padding="0" HasShadow="False" CornerRadius="10">
+    <ContentPage.BindingContext>
+        <vm:HotelViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StarVisibilityConverter x:Key="StarVisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Label Text="Hoteles" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        <CollectionView ItemsSource="{Binding Hoteles}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Spacing="5">
                         <Image Source="{Binding Imagen}" Aspect="AspectFill" HeightRequest="200" WidthRequest="300"/>
-                    </Frame>
+                        <StackLayout Padding="20">
+                            <Label Text="{Binding Nombre}"/>
+                            <StackLayout Orientation="Horizontal" Spacing="2">
+                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=1}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=2}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=3}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=4}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=5}" HeightRequest="20" WidthRequest="20"/>
+                                <Label Text="{Binding Valoracion}"/>
+                            </StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                    <!-- Nombre del hotel -->
-                    <Label Text="{Binding Nombre}" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding Direccion}" 
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Center" 
+                                    Grid.Column="0"/>
 
-                    <!-- Dirección -->
-                    <Label Text="{Binding Direccion}" FontSize="Small" TextColor="Gray" />
-
-                    <!-- Valoración y distancia -->
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding Valoracion}" TextColor="Green" />
-                        <Label Text="13 km" FontSize="Small" TextColor="Gray"/>
+                                <Button Text="Más Info" 
+                                    VerticalOptions="Center" 
+                                    Clicked="OnDetailPage" 
+                                    CornerRadius="8" 
+                                    Grid.Column="1"/>       
+                            </Grid>
+                        </StackLayout>
                     </StackLayout>
-
-                    <!-- Botón de acción -->
-                    <Button Text="Ver oferta" BackgroundColor="Yellow" CornerRadius="10" />
-                </Grid>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>
