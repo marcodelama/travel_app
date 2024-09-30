@@ -38,8 +38,8 @@ namespace travel_app.ViewModels
 
             if (responseObject != null && responseObject.Data != null)
             {
-                Hoteles.Clear(); // Limpiar la colección existente
-                Hoteles.Add(responseObject.Data); // Agregar el hotel a la colección
+                Hoteles.Clear();
+                Hoteles.Add(responseObject.Data);
             }
         }
 

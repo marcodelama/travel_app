@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -35,10 +36,9 @@ namespace travel_app.Views
             }
         }
 
-        [Obsolete]
         private async void VerHabitaciones(object sender, EventArgs e)
         {
-            await PopupNavigation.PushAsync(new HabitacionesPopup());
+            await Navigation.PushPopupAsync(new HabitacionesPopup(hotelId));
         }
     }
 }

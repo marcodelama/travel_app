@@ -16,10 +16,29 @@ namespace travel_app.Views.PopUp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HabitacionesPopup : PopupPage
     {
-        public HabitacionesPopup()
+        private int hotelId;
+
+        public HabitacionesPopup(int id)
         {
             InitializeComponent();
-            BindingContext = new HabitacionesPopupViewModel();
+            BindingContext = new DetalleHotelViewModel();
+            hotelId = id;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var viewModel = BindingContext as DetalleHotelViewModel;
+            if (viewModel != null)
+            {
+                viewModel.LoadHotelDetailsCommand.Execute(hotelId); // Ejecutar el comando para cargar los detalles del hotel
+            }
+        }
+
+        [Obsolete]
+        private async void CerrarHabitaciones(object sender, EventArgs e)
+        {
+            await PopupNavigation.PopAsync(true);
         }
     }
 }
