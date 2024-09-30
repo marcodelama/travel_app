@@ -9,10 +9,5 @@ namespace travel_app.ViewModels
 {
     public class HabitacionesPopupViewModel
     {
-        public ICommand CerrarPopupCommand { get; }
-        public HabitacionesPopupViewModel()
-        {
-            CerrarPopupCommand = new Command(async () => await PopupNavigation.Instance.PopAsync());
-        }
     }
 }

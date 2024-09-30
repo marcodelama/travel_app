@@ -5,13 +5,9 @@
                  xmlns:vm="clr-namespace:travel_app.ViewModels" 
                  x:Class="travel_app.Views.PopUp.HabitacionesPopup">
 
-    <ContentPage.BindingContext>
-        <vm:HabitacionesPopupViewModel/>
-    </ContentPage.BindingContext>
-
     <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
         <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center"/>
         <!-- Aquí puedes agregar un ListView o CollectionView para mostrar las habitaciones -->
-        <Button Text="Cerrar" Command="{Binding CerrarPopupCommand}"/>
+        <Button Text="Cerrar"/>
     </StackLayout>
 </popup:PopupPage>

@@ -24,7 +24,6 @@ namespace travel_app.ViewModels
         {
             _apiService = new ApiService();
             Hoteles = new ObservableCollection<Hotel>();
-            VerHabitacionesCommand = new Command(AbrirHabitacionesPopup);
             LoadHotelDetailsCommand = new Command<int>(async (hotelId) => await LoadHotelDetails(hotelId));
         }
 
@@ -47,10 +46,6 @@ namespace travel_app.ViewModels
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        private async void AbrirHabitacionesPopup()
-        {
-            await PopupNavigation.Instance.PushAsync(new HabitacionesPopup());
         }
     }
 }

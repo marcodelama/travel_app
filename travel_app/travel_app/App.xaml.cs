@@ -17,6 +17,7 @@ namespace travel_app
 
         protected override void OnStart()
         {
+            //Rg.Plugins.Popup.Popup.Init();}
         }
 
         protected override void OnSleep()
