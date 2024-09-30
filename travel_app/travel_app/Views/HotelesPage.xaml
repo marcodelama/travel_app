@@ -26,11 +26,11 @@
                         <StackLayout Padding="20">
                             <Label Text="{Binding Nombre}"/>
                             <StackLayout Orientation="Horizontal" Spacing="2">
-                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=1}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=2}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=3}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=4}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star_filled.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=5}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=1}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=2}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=3}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=4}" HeightRequest="20" WidthRequest="20"/>
+                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=5}" HeightRequest="20" WidthRequest="20"/>
                                 <Label Text="{Binding Valoracion}"/>
                             </StackLayout>
                             <Grid>
@@ -40,8 +40,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Text="{Binding Direccion}" 
-                                    VerticalOptions="Center" 
-                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center"
                                     Grid.Column="0"/>
 
                                 <Button Text="Más Info" 

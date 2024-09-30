@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,16 +34,25 @@ namespace travel_app.ViewModels
         {
             try
             {
+                JsonSerializerSettings settings = new JsonSerializerSettings
+                {
+                    ContractResolver = new DefaultContractResolver
+                    {
+                        NamingStrategy = new SnakeCaseNamingStrategy()
+                    }
+                };
+
                 var responseObject = await _apiService.GetAsync<ResponseWrapper<Hotel>>("hoteles");
 
                 if (responseObject != null && responseObject.Data != null)
                 {
-                    Hoteles.Clear(); // Limpia la colección existente
+                    Hoteles.Clear();
                     foreach (var hotel in responseObject.Data)
                     {
-                        Hoteles.Add(hotel); // Agrega los hoteles a la colección
-                        Console.WriteLine($"Hotel agregado: {hotel.Nombre}");
+                        Hoteles.Add(hotel);
                     }
+                    string jsonResponse = JsonConvert.SerializeObject(responseObject, Formatting.Indented);
+                    Debug.WriteLine($"Respuesta completa:\n{jsonResponse}");
                 }
             }
             catch (HttpRequestException ex)
