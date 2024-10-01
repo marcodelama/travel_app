@@ -3,14 +3,18 @@ using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Text;
+using travel_app.Models;
+using travel_app.Services;
 
 namespace travel_app.Views
 {
     public partial class Registrar : ContentPage
     {
+        public ApiService apiService;
         public Registrar()
         {
             InitializeComponent();
+            apiService = new ApiService();
         }
 
         private async void OnRegistrarClicked(object sender, EventArgs e)
@@ -40,24 +44,9 @@ namespace travel_app.Views
                     telefono = telefonoEntry.Text
                 };
 
-                var json = JsonConvert.SerializeObject(clienteData);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var resultado = await apiService.PostAsync("usuario/cliente/create", clienteData);
 
-                using (var client = new HttpClient())
-                {
-                    // Establecer la URL base
-                    client.BaseAddress = new Uri("http://localhost:4000"); // Cambia esto a la URL de tu servidor
-                    var response = await client.PostAsync("usuario/cliente/create", content);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        await DisplayAlert("Éxito", "Usuario registrado exitosamente.", "OK");
-                    }
-                    else
-                    {
-                        var errorMessage = await response.Content.ReadAsStringAsync();
-                        await DisplayAlert("Error", errorMessage, "OK");
-                    }
-                }
+                await DisplayAlert("Éxito", $"Usuario registrado: {resultado.Mensaje}", "OK");
             }
             catch (Exception ex)
             {
