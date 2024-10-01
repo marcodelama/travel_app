@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="travel_app.Views.IniciarSesion">
+
+    <!-- Página de inicio de sesión implementada en la primera pestaña -->
+    <ContentPage Title="Iniciar Sesión">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
+
+            <Image Source="logo.png" 
+               HeightRequest="130" 
+               WidthRequest="150" 
+               HorizontalOptions="Center"/>
+
+            <Label Text="SkyTrack"
+               FontSize="26"
+               FontAttributes="Bold"
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+
+            <Frame Padding="15" 
+               Margin="10"
+               BorderColor="White" 
+               BackgroundColor="White" 
+               CornerRadius="30"
+               HasShadow="True">
+                <Entry Placeholder="correo" 
+                   Keyboard="Email"
+                   HorizontalOptions="Center"
+                   WidthRequest="300"
+                   BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Frame Padding="15" 
+               Margin="10"
+               BorderColor="White" 
+               BackgroundColor="White" 
+               CornerRadius="30"
+               HasShadow="True">
+                <Entry Placeholder="contraseña"
+                   IsPassword="true"
+                   HorizontalOptions="Center"
+                   WidthRequest="300"
+                   BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Button Text="Iniciar Sesión"
+                BackgroundColor="#FF6600"
+                TextColor="White"
+                CornerRadius="25"
+                WidthRequest="250"
+                HeightRequest="50"
+                FontSize="18"
+                Clicked="OnhomeClicked"/>
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>

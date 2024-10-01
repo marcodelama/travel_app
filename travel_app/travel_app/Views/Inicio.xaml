@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="travel_app.Views.Inicio">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Inicio">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
+            <Image Source="logo.png" 
+                 HeightRequest="150" 
+                 WidthRequest="150" 
+                 HorizontalOptions="Center"/>
+
+            <Label Text="SkyTrack"
+                 FontSize="36"
+                 FontAttributes="Bold"
+                 TextColor="Black"
+                 HorizontalOptions="Center"/>
+
+            <Label Text="Descubre destinos únicos y crea"
+                 FontSize="16"
+                 TextColor="#FF6600"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 Margin="0"
+                 Padding="0"/>
+
+            <Label Text="recuerdos inolvidables"
+                 FontSize="16"
+                 TextColor="#FF6600"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 Margin="0"
+                 Padding="0"/>
+
+            <BoxView HeightRequest="20"/>
+
+            <Button Text="Iniciar Sesión"
+                  BackgroundColor="#FF6600"
+                  TextColor="White"
+                  CornerRadius="25"
+                  WidthRequest="250"
+                  HeightRequest="50"
+                  FontSize="18"
+                  Clicked="OnIniciarSesionClicked"/>
+
+            <Button Text="Registrarse"
+                  BackgroundColor="#C0C0C0"
+                  TextColor="White"
+                  CornerRadius="25"
+                  WidthRequest="250"
+                  HeightRequest="50"
+                  FontSize="18"
+                  Clicked="OnRegistrarseClicked"/>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>
