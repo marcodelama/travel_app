@@ -6,10 +6,11 @@
     <!-- Cambié a ContentPage como raíz -->
     <ScrollView>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
-            <Image Source="logo.png" 
-                   HeightRequest="110" 
-                   WidthRequest="150" 
-                   HorizontalOptions="Center" />
+            <Image Source="https://i.ibb.co/SRdN8M4/logo-removebg-preview.png"
+       HeightRequest="110"
+       WidthRequest="350"
+       HorizontalOptions="Center"
+       Margin="0,50,0,0" />
 
             <Label Text="SkyTrack"
                    FontSize="26"
@@ -115,6 +116,7 @@
                     WidthRequest="250"
                     HeightRequest="50"
                     FontSize="18"
+                    Margin="0,0,0,50"
                     Clicked="OnRegistrarClicked" />
         </StackLayout>
     </ScrollView>

@@ -7,7 +7,7 @@
     <ContentPage Title="Iniciar Sesión">
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
 
-            <Image Source="logo.png" 
+            <Image Source="https://i.ibb.co/SRdN8M4/logo-removebg-preview.png" 
                HeightRequest="130" 
                WidthRequest="150" 
                HorizontalOptions="Center"/>
