@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace travel_app.Views
 {
-    public partial class IniciarSesion : TabbedPage
+    public partial class LoginPage : TabbedPage
     {
-        public IniciarSesion(ApiService http)
+        public LoginPage(ApiService http)
         {
             InitializeComponent();
         }
