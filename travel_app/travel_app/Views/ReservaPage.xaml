@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="travel_app.Views.ReservaPage">
+    
+    <ContentPage Title="Reserva">
+        <StackLayout Padding="20">
+  
+            
+            <Image Source="https://i.ibb.co/8MCxzxR/Ciiiaptura-removebg-preview-1.png" 
+               Aspect="AspectFill" 
+               HorizontalOptions="FillAndExpand" 
+               HeightRequest="80" 
+               Margin="0,50,0,65"/>
+            
+            <Entry Placeholder="Nombres" Margin="0,10,0,0"/>
+            <Entry Placeholder="Apellidos" Margin="0,10,0,0"/>
+            <Entry Placeholder="DNI" Margin="0,10,0,0"/>
+            <Entry Placeholder="Correo Electrónico" Margin="0,10,0,10"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <DatePicker HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Fecha de llegada" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <DatePicker HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Fecha de salida" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10" Margin="0,40,0,0">
+                <Button Text="Cancelar" BackgroundColor="#bfbfbf" TextColor="White" HorizontalOptions="FillAndExpand" CornerRadius="20" HeightRequest="50" WidthRequest="150"/>
+                <Button Text="Guardar" BackgroundColor="#16bf22" TextColor="White" HorizontalOptions="FillAndExpand" CornerRadius="20" HeightRequest="50" WidthRequest="150"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>

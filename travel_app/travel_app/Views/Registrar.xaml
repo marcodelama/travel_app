@@ -1,21 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:travel_app.ViewModels"
+             xmlns:local="clr-namespace:travel_app.Converters"
              x:Class="travel_app.Views.Registrar"
              Title="Registrar">
-    <!-- Cambié a ContentPage como raíz -->
+
+    <ContentPage.BindingContext>
+        <vm:RegistrarViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--<local:StarVisibilityConverter x:Key="StarVisibilityConverter" />-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ScrollView>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
-            <Image Source="logo.png" 
-                   HeightRequest="110" 
-                   WidthRequest="150" 
-                   HorizontalOptions="Center" />
+            <Image Source="https://i.ibb.co/SRdN8M4/logo-removebg-preview.png"
+                   HeightRequest="110" WidthRequest="350"
+                   HorizontalOptions="Center" Margin="0,50,0,0" />
 
-            <Label Text="SkyTrack"
-                   FontSize="26"
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   HorizontalOptions="Center" />
+            <Label Text="SkyTrack" FontSize="26" FontAttributes="Bold"
+                   TextColor="Black" HorizontalOptions="Center" />
 
             <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                 <Label.FormattedText>
@@ -28,94 +36,46 @@
 
             <BoxView HeightRequest="5" />
 
-            <Frame Padding="10" 
-                   Margin="5"
-                   BorderColor="White" 
-                   BackgroundColor="White" 
-                   CornerRadius="30"
-                   HasShadow="True">
-                <Entry x:Name="nombreEntry" 
-                       Placeholder="Nombre" 
-                       HorizontalOptions="Center"
-                       WidthRequest="300"
-                       BackgroundColor="Transparent" />
+            <Frame Padding="10" Margin="5" BorderColor="White" BackgroundColor="White"
+                   CornerRadius="30" HasShadow="True">
+                <Entry Placeholder="Nombre" Text="{Binding Nombre}" HorizontalOptions="Center"
+                       WidthRequest="300" BackgroundColor="Transparent" />
             </Frame>
 
-            <Frame Padding="10" 
-                   Margin="5"
-                   BorderColor="White" 
-                   BackgroundColor="White" 
-                   CornerRadius="30"
-                   HasShadow="True">
-                <Entry x:Name="apellidoEntry" 
-                       Placeholder="Apellido" 
-                       HorizontalOptions="Center"
-                       WidthRequest="300"
-                       BackgroundColor="Transparent" />
+            <Frame Padding="10" Margin="5" BorderColor="White" BackgroundColor="White"
+                   CornerRadius="30" HasShadow="True">
+                <Entry Placeholder="Apellido" Text="{Binding Apellido}" HorizontalOptions="Center"
+                       WidthRequest="300" BackgroundColor="Transparent" />
             </Frame>
 
-            <Frame Padding="10" 
-                   Margin="5"
-                   BorderColor="White" 
-                   BackgroundColor="White" 
-                   CornerRadius="30"
-                   HasShadow="True">
-                <Entry x:Name="dniEntry" 
-                       Placeholder="DNI" 
-                       HorizontalOptions="Center"
-                       WidthRequest="300"
-                       BackgroundColor="Transparent" />
+            <Frame Padding="10" Margin="5" BorderColor="White" BackgroundColor="White"
+                   CornerRadius="30" HasShadow="True">
+                <Entry Placeholder="DNI" Text="{Binding Dni}" HorizontalOptions="Center"
+                       WidthRequest="300" BackgroundColor="Transparent" />
             </Frame>
 
-            <Frame Padding="10" 
-                   Margin="5"
-                   BorderColor="White" 
-                   BackgroundColor="White" 
-                   CornerRadius="30"
-                   HasShadow="True">
-                <Entry x:Name="telefonoEntry" 
-                       Placeholder="Teléfono" 
-                       HorizontalOptions="Center"
-                       WidthRequest="300"
-                       BackgroundColor="Transparent" />
+            <Frame Padding="10" Margin="5" BorderColor="White" BackgroundColor="White"
+                   CornerRadius="30" HasShadow="True">
+                <Entry Placeholder="Teléfono" Text="{Binding Telefono}" HorizontalOptions="Center"
+                       WidthRequest="300" BackgroundColor="Transparent" />
             </Frame>
 
-            <Frame Padding="10" 
-                   Margin="5"
-                   BorderColor="White" 
-                   BackgroundColor="White" 
-                   CornerRadius="30"
-                   HasShadow="True">
-                <Entry x:Name="correoEntry"
-                       Placeholder="Correo"
-                       Keyboard="Email"
-                       HorizontalOptions="Center"
-                       WidthRequest="300"
-                       BackgroundColor="Transparent" />
+            <Frame Padding="10" Margin="5" BorderColor="White" BackgroundColor="White"
+                   CornerRadius="30" HasShadow="True">
+                <Entry Placeholder="Correo" Text="{Binding Correo}" Keyboard="Email"
+                       HorizontalOptions="Center" WidthRequest="300" BackgroundColor="Transparent" />
             </Frame>
 
-            <Frame Padding="10" 
-                   Margin="5"
-                   BorderColor="White" 
-                   BackgroundColor="White" 
-                   CornerRadius="30"
-                   HasShadow="True">
-                <Entry x:Name="contraseñaEntry"
-                       Placeholder="Contraseña"
-                       IsPassword="True"
-                       HorizontalOptions="Center"
-                       WidthRequest="300"
-                       BackgroundColor="Transparent" />
+            <Frame Padding="10" Margin="5" BorderColor="White" BackgroundColor="White"
+                   CornerRadius="30" HasShadow="True">
+                <Entry Placeholder="Contraseña" Text="{Binding Contraseña}" IsPassword="True"
+                       HorizontalOptions="Center" WidthRequest="300" BackgroundColor="Transparent" />
             </Frame>
 
-            <Button Text="Registrar" 
-                    BackgroundColor="#FF6600"
-                    TextColor="White"
-                    CornerRadius="25"
-                    WidthRequest="250"
-                    HeightRequest="50"
-                    FontSize="18"
-                    Clicked="OnRegistrarClicked" />
+            <Button Text="Registrar" Command="{Binding RegistrarCommand}"
+                    BackgroundColor="#FF6600" TextColor="White" CornerRadius="25"
+                    WidthRequest="250" HeightRequest="50" FontSize="18" Margin="0,0,0,50" />
         </StackLayout>
     </ScrollView>
+
 </ContentPage>

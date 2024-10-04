@@ -8,6 +8,7 @@ namespace travel_app
 {
     public partial class App : Application
     {
+        public static FlyoutPage MasterDet { get; set; }
         public App()
         {
             InitializeComponent();

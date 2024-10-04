@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="travel_app.Views.HomePage">
+    <!-- Barra lateral (Flyout) -->
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menú"
+                 BackgroundColor="#E8EAF6">
+            <ScrollView>
+                <StackLayout Spacing="15" Padding="20">
+
+                    <!-- Encabezado de la barra lateral -->
+                    <Frame BackgroundColor="#F2B06B" Padding="10" CornerRadius="15" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Image Source="https://i.ibb.co/SRdN8M4/logo-removebg-preview.png"
+                               HeightRequest="40" 
+                               WidthRequest="40" 
+                               VerticalOptions="Center" />
+                            <Label Text="SkyTrack" 
+                               FontSize="18"  
+                                FontAttributes="Bold" 
+                               TextColor="White" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Opciones del menú -->
+                    <Frame CornerRadius="20" HasShadow="True" Padding="0">
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="home.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center"/>
+                            <Button Text="Home" 
+                                    FontSize="12"  
+                                    HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="Center"
+                                    BackgroundColor="Transparent"
+                                    TextColor="Black"
+                                    BorderColor="Transparent"
+                                    Padding="5"
+                                    Margin="5"
+                                    WidthRequest="100"
+                                    HeightRequest="30"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="20" HasShadow="True" Padding="0">
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="home.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center"/>
+                            <Button Text="Hoteles" 
+                                FontSize="12"  
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                TextColor="Black"
+                                BorderColor="Transparent"
+                                Padding="5"
+                                Margin="5"
+                                WidthRequest="100"
+                                HeightRequest="30"
+                                Clicked="OnhotelesClicked"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="20" HasShadow="True" Padding="0">
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="user.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center"/>
+                            <Button Text="Ver Reservas" 
+                                FontSize="12"  
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                TextColor="Black"
+                                BorderColor="Transparent"
+                                Padding="5"
+                                Margin="5"
+                                WidthRequest="100"
+                                HeightRequest="30"
+                                Clicked="OnreservasClicked"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="20" HasShadow="True" Padding="0">
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="settings.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center"/>
+                            <Button Text="Atracciones" 
+                                FontSize="12"  
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                TextColor="Black"
+                                BorderColor="Transparent"
+                                Padding="5"
+                                Margin="5"
+                                WidthRequest="100"
+                                HeightRequest="30"
+                                Clicked="OnatracsiClicked"/>
+                        </StackLayout>
+                    </Frame>
+
+ 
+    <!-- Pie de menú (opcional) -->
+    <StackLayout VerticalOptions="EndAndExpand" Padding="10">
+        <Label Text="© 2024 SkyTrack" 
+               FontSize="12" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" 
+               TextColor="Gray"/>
+    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+
+    <!-- Página principal (Detail) -->
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Title="SkyTrack">
+                    <ScrollView>
+                        <StackLayout>
+
+                            <!-- Búsqueda -->
+                            <Frame CornerRadius="50" Padding="5" HasShadow="True" Margin="20" BorderColor="#333333">
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="txtCodigo" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                    <Image Source="lupa.png" HeightRequest="29" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <!-- Machu Picchu -->
+                            <Frame Margin="30" Padding="20" BackgroundColor="#F9AA04" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Padding="5" FontAttributes="Bold" Grid.Column="0" Text="MACHU PICCHU" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Machu Picchu, la joya de los Andes, es una antigua ciudad inca ubicada en lo alto de las montañas de Perú. Famosa por su impresionante arquitectura y vistas espectaculares, es uno de los destinos turísticos más emblemáticos del mundo. ¡Ven y descubre la magia de este sitio milenario!" FontSize="12" TextColor="#333333" VerticalOptions="Center"/>
+                                    <Image Grid.Row="1" Source="https://i.ibb.co/pLkTbGp/Imagen-de-Whats-App-2024-10-03-a-las-21-37-35-cbd1b25e.jpg" Grid.Column="1" HeightRequest="160" WidthRequest="160" Aspect="AspectFill" Margin="10,2,10,10" VerticalOptions="Start"/>
+                                </Grid>
+                            </Frame>
+
+                            <!-- Hoteles -->
+                            <Frame Margin="30" Padding="20" BackgroundColor="#E8B75E" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="1" Padding="5" FontAttributes="Bold" Text="HOTELES" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="Inkaterra Hacienda Urubamba es un lujoso hotel ecológico en el corazón del Valle Sagrado de los Incas, rodeado de impresionantes paisajes andinos. Combina elegancia rústica con un enfoque en la sostenibilidad, ofreciendo una experiencia relajante. ¡Descubre el encanto del Perú!" FontSize="12" TextColor="#333333" VerticalOptions="Center"/>
+                                    <Image Grid.Row="1" Source="https://i.ibb.co/N1Py2ks/Imagen-de-Whats-App-2024-10-03-a-las-21-37-54-3c0be505.jpg" Grid.Column="0" HeightRequest="160" WidthRequest="160" Aspect="AspectFill" Margin="10,2,10,10" VerticalOptions="Start"/>
+                                </Grid>
+                            </Frame>
+
+                            <!-- Carousel -->
+                            <Frame Padding="20" CornerRadius="5">
+                                <Grid>
+                                    <Image Margin="2" 
+                                           Source="https://i.ibb.co/8X4QczD/Imagen-de-Whats-App-2024-10-03-a-las-21-38-40-a0e4279a.jpg" 
+                                           Aspect="AspectFill" 
+                                           VerticalOptions="Fill" 
+                                           HorizontalOptions="Fill"/>
+
+                                    <CarouselView HeightRequest="250" VerticalOptions="FillAndExpand">
+                                        <CarouselView.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Descubre destinos, reserva vuelos y vive aventuras inolvidables. ¡Tu próximo viaje comienza aquí!</x:String>
+                                                <x:String>Encuentra los mejores destinos y ofertas en vuelos, hoteles y actividades con nuestra app. ¡Haz que tu viaje sea tan fácil como soñar!</x:String>
+                                                <x:String>Planifica tu próxima aventura desde la palma de tu mano. Vuelos, hoteles y experiencias únicas, todo en una sola app. ¡Viajar nunca fue tan fácil!</x:String>
+                                                <x:String>Proximamente!</x:String>
+                                            </x:Array>
+                                        </CarouselView.ItemsSource>
+
+                                        <CarouselView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                                                    <Label Text="{Binding}" Margin="25" FontSize="20" FontAttributes="Italic" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CarouselView.ItemTemplate>
+                                    </CarouselView>
+                                </Grid>
+                            </Frame>
+
+                            <!-- Sección final -->
+                            <Frame Margin="30" Padding="20" BackgroundColor="#D57334" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Padding="5" FontAttributes="Bold" Text="¡QUE ESPERAS!" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="¡Planifica tu próxima aventura con nosotros y vive experiencias únicas! Desde playas paradisíacas hasta sitios históricos, te ofrecemos los mejores destinos. Reserva ahora y deja que nos encarguemos de todo para que disfrutes del viaje de tus sueños sin preocupaciones." FontSize="12" TextColor="#333333" VerticalOptions="Center"/>
+                                    <Image Grid.Row="1" Source="https://i.ibb.co/cbhwJBZ/Imagen-de-Whats-App-2024-10-03-a-las-21-37-48-f525fe03.jpg" Grid.Column="1" HeightRequest="160" WidthRequest="160" Aspect="AspectFill" Margin="10,2,10,10" VerticalOptions="Start"/>
+                                </Grid>
+                            </Frame>
+
+                            <!-- Pie de página -->
+                            <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="#333333" Padding="10" HorizontalOptions="FillAndExpand">
+                                <Label Text="© 2024 SkyTrack. Todos los derechos reservados"  
+                                       FontSize="12"  
+                                       TextColor="#FFFFFF"  
+                                       HorizontalOptions="Center"  
+                                       VerticalOptions="Center"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ScrollView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+
+</FlyoutPage>

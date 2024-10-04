@@ -40,5 +40,11 @@ namespace travel_app.Views
                 await Navigation.PushAsync(new DetalleHotel(selectedHotel.Id)); // Navegar pasando el ID del hotel
             }
         }
+        // Método para regresar a la página principal
+        private async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HomePage()); 
+        }
     }
 }
+

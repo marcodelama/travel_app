@@ -17,6 +17,10 @@
     </ContentPage.Resources>
 
     <StackLayout>
+        <Button Text="&#8592; Regresar" 
+                HorizontalOptions="Start"
+                VerticalOptions="Start" 
+                Clicked="OnBackButtonClicked" />
         <Label Text="Hoteles" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         <CollectionView ItemsSource="{Binding Hoteles}">
             <CollectionView.ItemTemplate>

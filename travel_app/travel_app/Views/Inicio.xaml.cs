@@ -16,7 +16,7 @@ namespace travel_app.Views
         private async void OnIniciarSesionClicked(object sender, EventArgs e)
         {
             // Navega a la vista de Iniciar Sesión
-            await Navigation.PushAsync(new IniciarSesion(http));
+            await Navigation.PushAsync(new LoginPage(http));
         }
 
         private async void OnRegistrarseClicked(object sender, EventArgs e)
