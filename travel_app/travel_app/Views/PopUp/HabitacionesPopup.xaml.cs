@@ -24,6 +24,8 @@ namespace travel_app.Views.PopUp
             BindingContext = new DetalleHotelViewModel();
             hotelId = id;
         }
+
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -39,6 +41,12 @@ namespace travel_app.Views.PopUp
         private async void CerrarHabitaciones(object sender, EventArgs e)
         {
             await PopupNavigation.PopAsync(true);
+        }
+        // Evento del botón Reservar
+        private async void Reservar_Clicked(object sender, EventArgs e)
+        {
+            // Navegar a ReservaPage
+            await Navigation.PushAsync(new ReservaPage());
         }
     }
 }

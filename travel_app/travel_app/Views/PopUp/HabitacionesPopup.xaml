@@ -5,41 +5,53 @@
                  xmlns:vm="clr-namespace:travel_app.ViewModels"
                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                 x:Class="travel_app.Views.PopUp.HabitacionesPopup">
+                 x:Class="travel_app.Views.PopUp.HabitacionesPopup"
+                 BackgroundColor="Transparent">
 
     <ContentPage.BindingContext>
         <vm:DetalleHotelViewModel />
     </ContentPage.BindingContext>
-    
+
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation
-            PositionIn="Center"
-            PositionOut="Center"
-            ScaleIn="1.2"
-            ScaleOut="0.8"
-            DurationIn="400"
-            DurationOut="300"
-            EasingIn="SinOut"
-            EasingOut="SinIn"
-            HasBackgroundAnimation="False"/>
+            PositionIn="Left"
+            PositionOut="Left"
+            ScaleIn="1"
+            ScaleOut="1"
+            DurationIn="0"
+            DurationOut="0"
+            EasingIn="Linear"
+            EasingOut="Linear"
+            HasBackgroundAnimation="False" />
     </pages:PopupPage.Animation>
 
-    <AbsoluteLayout Margin="30">
-        <Frame BackgroundColor="#121212" CornerRadius="8" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+    <AbsoluteLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+        <Frame BackgroundColor="White" CornerRadius="0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
             <StackLayout>
-                <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center"/>
+                <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center" TextColor="#121212" />
+
                 <CollectionView ItemsSource="{Binding Hoteles}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout VerticalOptions="CenterAndExpand">
+                            <StackLayout VerticalOptions="CenterAndExpand" Spacing="50">
                                 <CollectionView ItemsSource="{Binding Habitaciones}" VerticalOptions="FillAndExpand">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <StackLayout Padding="10">
-                                                <Label Text="{Binding Num_Habitacion}" FontSize="Small" TextColor="White"/>
-                                                <Label Text="{Binding Estado}" FontSize="Small" TextColor="White"/>
-                                                <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}" FontSize="Small" TextColor="White"/>
-                                            </StackLayout>
+                                            <Frame BackgroundColor="#FFA500" Padding="10" CornerRadius="10" Margin="30,10,30,10">
+                                                <StackLayout>
+                                                    <Label Text="{Binding Num_Habitacion}" FontSize="Medium" TextColor="Black" />
+                                                    <Label Text="{Binding Estado}" FontSize="Small" TextColor="Black" />
+                                                    <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}" FontSize="Medium" TextColor="Black" />
+                                                    <Button Text="Reservar" 
+        AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize" 
+        AbsoluteLayout.LayoutFlags="PositionProportional" 
+        BackgroundColor="green"
+        TextColor="White"
+        Margin="10"
+        Clicked="Reservar_Clicked"/>
+
+                                                </StackLayout>
+                                            </Frame>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
@@ -47,9 +59,12 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Button Text="Cerrar" Clicked="CerrarHabitaciones" HorizontalOptions="Center"/>
+
+                <Button Text="VER" Clicked="CerrarHabitaciones" HorizontalOptions="Center" Margin="0,20,0,0" />
             </StackLayout>
         </Frame>
+
+      
     </AbsoluteLayout>
 
 </popup:PopupPage>
