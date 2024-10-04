@@ -41,6 +41,9 @@
 
                 <!-- Hoteles -->
                 <Frame Margin="30" Padding="20" BackgroundColor="#E8B75E" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHotelesTapped" />
+                    </Frame.GestureRecognizers>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -55,6 +58,7 @@
                         <Image Grid.Row="1" x:Name="img2" Source="https://i.ibb.co/N1Py2ks/Imagen-de-Whats-App-2024-10-03-a-las-21-37-54-3c0be505.jpg" Grid.Column="0" HeightRequest="160" WidthRequest="160" Aspect="AspectFill" Margin="10,2,10,10" VerticalOptions="Start"/>
                     </Grid>
                 </Frame>
+
 
                 <!-- Carousel -->
                 <Frame Padding="20" CornerRadius="5">
