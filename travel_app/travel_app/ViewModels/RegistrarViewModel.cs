@@ -124,7 +124,7 @@ namespace travel_app.ViewModels
             var apiService = new ApiService();
             var resultado = await apiService.PostAsync("usuario/cliente/create", clienteData);
 
-            await App.Current.MainPage.DisplayAlert("Éxito", $"Usuario registrado: {resultado.Mensaje}", "OK");
+            await App.Current.MainPage.DisplayAlert("Éxito", $"Usuario registrado: Bienvenido, {nombre}", "OK");
         }
         catch (Exception ex)
         {

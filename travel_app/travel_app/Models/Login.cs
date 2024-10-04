@@ -9,5 +9,7 @@ namespace travel_app.Models
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Nombre { get; set; }
+        public int UsuarioId { get; set; }
     }
 }

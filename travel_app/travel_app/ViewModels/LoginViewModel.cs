@@ -83,7 +83,7 @@ namespace travel_app.ViewModels
                 var response = await client.PostAsync("usuario/login", loginData);
 
                 // Si llegas aquí, asumimos que la respuesta fue exitosa
-                await App.Current.MainPage.DisplayAlert("Éxito", "Inicio de sesión exitoso", "OK");
+                await App.Current.MainPage.DisplayAlert("Éxito", $"Bienvenido {username}", "OK");
 
                 // Redirigir a HomePage.xaml sin comprobar el estado de la respuesta
                 Application.Current.MainPage = new NavigationPage(new HomePage());
