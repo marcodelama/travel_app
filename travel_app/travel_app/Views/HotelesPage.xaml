@@ -17,7 +17,7 @@
     </ContentPage.Resources>
 
     <StackLayout>
-        <Label Text="Hoteles" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        <Label Text="Hoteles" HorizontalTextAlignment="Center" TextColor="BLACK" FontSize="36"/>
         <CollectionView ItemsSource="{Binding Hoteles}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>

@@ -30,7 +30,14 @@
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10" Margin="0,40,0,0">
                 <Button Text="Cancelar" BackgroundColor="#bfbfbf" TextColor="White" HorizontalOptions="FillAndExpand" CornerRadius="20" HeightRequest="50" WidthRequest="150"/>
-                <Button Text="Guardar" BackgroundColor="#16bf22" TextColor="White" HorizontalOptions="FillAndExpand" CornerRadius="20" HeightRequest="50" WidthRequest="150"/>
+                <Button Text="Guardar" 
+        BackgroundColor="#16bf22" 
+        TextColor="White" 
+        HorizontalOptions="FillAndExpand" 
+        CornerRadius="20" 
+        HeightRequest="50" 
+        WidthRequest="150"
+        Clicked="OnGuardarClicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage>
