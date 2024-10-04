@@ -4,7 +4,7 @@ using System.Text;
 
 namespace travel_app.Models
 {
-    internal class Reserva
+    internal class Reservaa
     {
     }
 }

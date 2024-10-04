@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:travel_app.ViewModels" 
+    x:Class="travel_app.Views.VerReservas"
+            Title="Reservas">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <Frame BackgroundColor="#FFA500" Padding="10" CornerRadius="0">
+                    <Label Text="Reservas" TextColor="White" FontSize="24" HorizontalOptions="Center"/>
+                </Frame>
+                <CollectionView ItemsSource="{Binding Reservas}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="0,10" Padding="10" BorderColor="LightGray">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding ImagenUrl}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <StackLayout Grid.Column="1" Margin="10,0">
+                                        <Label Text="{Binding NombreHotel}" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Descripcion}" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2" VerticalOptions="Center">
+                                        <Button Text="Cancelar" BackgroundColor="LightGray" TextColor="Black" 
+                                Command="{Binding CancelarReservaCommand}"
+                                CommandParameter="{Binding .}"/>
+                                        <Button Text="Ver" BackgroundColor="#FFA500" TextColor="White" 
+                                Command="{Binding VerDetallesCommand}"
+                                CommandParameter="{Binding .}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
