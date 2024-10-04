@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using travel_app.Models;
 
 namespace travel_app.Services
 {
     public class ApiService
     {
         private static readonly HttpClient _client = new HttpClient();
+
         private readonly string _baseUrl = "http://192.168.18.4:4000/api/v1/";
         public async Task<T> GetAsync<T>(string endpoint)
         {
@@ -32,7 +34,7 @@ namespace travel_app.Services
 
 
         // Método genérico para enviar datos a la API (POST)
-        public async Task<T> PostAsync<T>(string endpoint, object data)
+        public async Task<Response> PostAsync(string endpoint, object data)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -44,12 +46,17 @@ namespace travel_app.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var responseJson = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<T>(responseJson);
+                    return JsonConvert.DeserializeObject<Response>(responseJson);
                 }
 
                 throw new Exception($"Error: {response.StatusCode}, Message: {response.ReasonPhrase}");
             }
         }
 
+        public class Response
+        {
+            public string Mensaje { get; set; }
+            public bool Exito { get; set; }
+        }
     }
 }

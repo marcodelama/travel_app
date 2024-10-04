@@ -12,7 +12,9 @@ namespace travel_app
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new HotelesPage());
+            //MainPage = new NavigationPage(new HotelesPage());
+            MainPage = new NavigationPage(new travel_app.Views.Inicio());
+
         }
 
         protected override void OnStart()

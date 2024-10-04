@@ -2,12 +2,54 @@
 <popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:vm="clr-namespace:travel_app.ViewModels" 
+                 xmlns:vm="clr-namespace:travel_app.ViewModels"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
                  x:Class="travel_app.Views.PopUp.HabitacionesPopup">
 
-    <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
-        <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center"/>
-        <!-- Aquí puedes agregar un ListView o CollectionView para mostrar las habitaciones -->
-        <Button Text="Cerrar"/>
-    </StackLayout>
+    <ContentPage.BindingContext>
+        <vm:DetalleHotelViewModel />
+    </ContentPage.BindingContext>
+    
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="False"/>
+    </pages:PopupPage.Animation>
+
+    <AbsoluteLayout Margin="30">
+        <Frame BackgroundColor="#121212" CornerRadius="8" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+            <StackLayout>
+                <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center"/>
+                <CollectionView ItemsSource="{Binding Hoteles}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <CollectionView ItemsSource="{Binding Habitaciones}" VerticalOptions="FillAndExpand">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Padding="10">
+                                                <Label Text="{Binding Num_Habitacion}" FontSize="Small" TextColor="White"/>
+                                                <Label Text="{Binding Estado}" FontSize="Small" TextColor="White"/>
+                                                <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}" FontSize="Small" TextColor="White"/>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="Cerrar" Clicked="CerrarHabitaciones" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Frame>
+    </AbsoluteLayout>
+
 </popup:PopupPage>
