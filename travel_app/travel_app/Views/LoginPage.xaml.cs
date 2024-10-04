@@ -11,8 +11,6 @@ namespace travel_app.Views
         {
             InitializeComponent();
         }
-
-        // Método que manejará el evento Clicked del botón
         private void OnhomeClicked(object sender, EventArgs e)
         {
             

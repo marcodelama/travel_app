@@ -4,7 +4,8 @@ using System.Text;
 
 namespace travel_app.ViewModels
 {
-    internal class HomeViewModel
+    public class HomeViewModel
     {
+         
     }
 }

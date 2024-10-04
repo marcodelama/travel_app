@@ -11,12 +11,12 @@ namespace travel_app.ViewModels
     public class RegistrarViewModel : INotifyPropertyChanged
     {
         private string nombre;
-    private string apellido;
-    private string dni;
-    private string telefono;
-    private string correo;
-    private string contraseña;
-    private bool isLoading;
+        private string apellido;
+        private string dni;
+        private string telefono;
+        private string correo;
+        private string contraseña;
+        private bool isLoading;
 
     public event PropertyChangedEventHandler PropertyChanged;
 

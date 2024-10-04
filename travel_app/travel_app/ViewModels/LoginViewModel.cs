@@ -19,6 +19,7 @@ namespace travel_app.ViewModels
         private string password;
         private bool isLoading;
         private ApiService client;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string Username
