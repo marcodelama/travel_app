@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Newtonsoft.Json;
 using travel_app;
 using travel_app.Services;
+using travel_app.Views;
 using Xamarin.Forms;
 
 
@@ -71,23 +72,20 @@ namespace travel_app.ViewModels
 
             try
             {
-                // Creación del cliente HTTP
-                
-                    var loginData = new
-                    {
-                        username = Username,
-                        password = Password
-                    };
+                var loginData = new
+                {
+                    username = Username,
+                    password = Password
+                };
 
+                // Hacer la solicitud POST a la API
+                var response = await client.PostAsync("usuario/login", loginData);
 
-                    // Hacer la solicitud POST a la API
-                    var response = await client.PostAsync("usuario/login", loginData);
+                // Si llegas aquí, asumimos que la respuesta fue exitosa
+                await App.Current.MainPage.DisplayAlert("Éxito", "Inicio de sesión exitoso", "OK");
 
-                    await App.Current.MainPage.DisplayAlert("Éxito", "Inicio de sesión exitoso", "OK");
-                   
-
-                   
-                
+                // Redirigir a HomePage.xaml sin comprobar el estado de la respuesta
+                Application.Current.MainPage = new NavigationPage(new HomePage());
             }
             catch (Exception ex)
             {
@@ -98,6 +96,7 @@ namespace travel_app.ViewModels
                 IsLoading = false;
             }
         }
+
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
