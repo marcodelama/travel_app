@@ -14,6 +14,7 @@ namespace travel_app.Views
     {
         public ReservaPage()
         {
+
             InitializeComponent();
         }
         private async void OnGuardarClicked(object sender, EventArgs e)
