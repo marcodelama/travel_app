@@ -9,7 +9,7 @@
         <ScrollView>
             <StackLayout>
                 <!-- Título y Logo de la Empresa (Encabezado) -->
-                <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="#FFFFFF">
+                <StackLayout Orientation="Horizontal" Padding="10"  BackgroundColor="#FFFFFF">
                     <Image Source="https://i.ibb.co/J7rsmVd/Imagen-de-Whats-App-2024-10-03-a-las-21-38-11-477dac17.jpg" HeightRequest="30" WidthRequest="30" VerticalOptions="Center"/>
                     <Label Text="SkyTrack" FontSize="24" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
                     <Image Source="https://i.ibb.co/SRdN8M4/logo-removebg-preview.png" HeightRequest="30" WidthRequest="30" VerticalOptions="Center"/>

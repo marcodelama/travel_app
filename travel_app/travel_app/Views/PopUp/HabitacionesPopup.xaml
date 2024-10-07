@@ -25,46 +25,45 @@
             HasBackgroundAnimation="False" />
     </pages:PopupPage.Animation>
 
-    <AbsoluteLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+    <AbsoluteLayout BackgroundColor="Transparent">
         <Frame BackgroundColor="White" CornerRadius="0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
             <StackLayout>
                 <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center" TextColor="#121212" />
 
-                <CollectionView ItemsSource="{Binding Hoteles}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout VerticalOptions="CenterAndExpand" Spacing="50">
-                                <CollectionView ItemsSource="{Binding Habitaciones}" VerticalOptions="FillAndExpand">
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <Frame BackgroundColor="#FFA500" Padding="10" CornerRadius="10" Margin="30,10,30,10">
+                <!-- ScrollView alrededor del CollectionView -->
+                <ScrollView>
+                    <CollectionView ItemsSource="{Binding Hoteles}" VerticalOptions="FillAndExpand">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout VerticalOptions="CenterAndExpand" Spacing="50">
+                                    <CollectionView ItemsSource="{Binding Habitaciones}" VerticalOptions="FillAndExpand">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
                                                 <StackLayout>
+                                                    <Image Source="{Binding Tipo_Habitacion.Imagen}" Aspect="AspectFill" HeightRequest="200" WidthRequest="300"/>
                                                     <Label Text="{Binding Num_Habitacion}" FontSize="Medium" TextColor="Black" />
-                                                    <Label Text="{Binding Estado}" FontSize="Small" TextColor="Black" />
                                                     <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}" FontSize="Medium" TextColor="Black" />
                                                     <Button Text="Reservar" 
-        AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize" 
-        AbsoluteLayout.LayoutFlags="PositionProportional" 
-        BackgroundColor="green"
-        TextColor="White"
-        Margin="10"
-        Clicked="Reservar_Clicked"/>
-
+                                                            BackgroundColor="green"
+                                                            TextColor="White"
+                                                            Margin="10,30,30,5"
+                                                            Clicked="Reservar_Clicked"/>
                                                 </StackLayout>
-                                            </Frame>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
 
+                <!-- Botón VER dentro del StackLayout -->
                 <Button Text="VER" Clicked="CerrarHabitaciones" HorizontalOptions="Center" Margin="0,20,0,0" />
             </StackLayout>
         </Frame>
 
-      
+        <!-- Contenedor blanco de 80 píxeles de alto -->
+        <BoxView HeightRequest="80" BackgroundColor="White" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 0" />
     </AbsoluteLayout>
-
 </popup:PopupPage>

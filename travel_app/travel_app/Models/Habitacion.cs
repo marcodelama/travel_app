@@ -10,6 +10,8 @@ namespace travel_app.Models
         public int Estado { get; set; }
         public int Num_Habitacion { get; set; }
         public int? Reserva_Id { get; set; }
+
+
         public TipoHabitacion Tipo_Habitacion { get; set; }
     }
 }

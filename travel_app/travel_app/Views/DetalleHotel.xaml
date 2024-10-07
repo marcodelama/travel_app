@@ -35,7 +35,7 @@
                         <Label Text="{Binding Direccion}"/>
                         <Label Text="{Binding Ubicacion.Provincia}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                            <Button Text="Ver habitaciones" TextColor="#000" CornerRadius="8" BackgroundColor="Gold" Clicked="VerHabitaciones"/>
+                            <Button Text="Ver habitaciones" TextColor="#000" CornerRadius="8" BackgroundColor="gold" Clicked="VerHabitaciones"/>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
