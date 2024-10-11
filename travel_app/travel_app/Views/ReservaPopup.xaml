@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:rg="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+              xmlns:vm="clr-namespace:travel_app.ViewModels"
+              x:Class="travel_app.Views.ReservaPopup"
+              Padding="20">
+
+    <StackLayout BackgroundColor="White" Padding="10">
+        <Label Text="Seleccione habitaciones para reservar:"
+               FontSize="18"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" 
+               Margin="0,0,0,10"/>
+
+        <CollectionView x:Name="HabitacionesCollectionView"
+                        ItemsSource="{Binding Habitaciones}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Margin="0,5">
+                        <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" 
+                                  CheckedChanged="OnHabitacionCheckedChanged"/>
+                        <Image Source="{Binding Tipo_Habitacion.Imagen}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="50"
+                                   WidthRequest="100"
+                                   Margin="10,10,10,0" />
+                        <StackLayout Margin="5,10, 10, 0">
+                            <Label Text="{Binding Num_Habitacion, StringFormat='Habitación {0}'}"
+                                   VerticalOptions="Center" />
+                            <Label Text="{Binding Tipo_Habitacion.Descripcion}"
+                                   VerticalOptions="Center" />
+                            <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}"
+                                   VerticalOptions="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <DatePicker x:Name="FechaInicioPicker" />
+        <DatePicker x:Name="FechaFinPicker" />
+
+        <!-- Botones Reservar y Cancelar alineados en horizontal -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+            <Button Text="Reservar" 
+                    BackgroundColor="#007BFF" 
+                    TextColor="White" 
+                    Clicked="OnClickedReservar"/>
+            <Button Text="Cancelar" 
+                    BackgroundColor="#E0E0E0" 
+                    TextColor="Black" 
+                    Clicked="Cerrar_Popup"/>
+        </StackLayout>
+    </StackLayout>
+</rg:PopupPage>

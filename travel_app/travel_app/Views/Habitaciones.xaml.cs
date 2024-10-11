@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +30,16 @@ namespace travel_app.Views
             if (viewModel != null)
             {
                 viewModel.LoadHotelDetailsCommand.Execute(hotelId); // Ejecutar el comando para cargar los detalles del hotel
+            }
+        }
+
+        private async void Reserva_Clicked(object sender, EventArgs e)
+        {
+            var viewModel = BindingContext as DetalleHotelViewModel;
+            if (viewModel != null && viewModel.Habitaciones != null)
+            {
+                var popup = new ReservaPopup(viewModel.Habitaciones.ToList()); // Pasa la lista de habitaciones
+                await PopupNavigation.Instance.PushAsync(popup);
             }
         }
     }

@@ -1,40 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:travel_app.ViewModels"
+             xmlns:vm="clr-namespace:travel_app.ViewModels" 
+             xmlns:local="clr-namespace:travel_app.Converters"
              x:Class="travel_app.Views.Habitaciones"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
         <vm:DetalleHotelViewModel />
     </ContentPage.BindingContext>
-    
-    <StackLayout>
-        <Label Text="Habitaciones" HorizontalTextAlignment="Center" TextColor="BLACK" FontSize="20"/>
-        <CollectionView ItemsSource="{Binding Hoteles}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:EstadoConverter x:Key="EstadoConverter"/>
+            <local:EstadoColorConverter x:Key="EstadoColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="20" BackgroundColor="White">
+        <Label Text="Habitaciones" 
+           HorizontalTextAlignment="Center" 
+           TextColor="#333" 
+           FontSize="24" 
+           FontAttributes="Bold"
+           Margin="0,0,0,20"/>
+
+        <CollectionView ItemsSource="{Binding Habitaciones}" 
+                    Margin="0,0,0,10">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <!-- CollectionView para Habitaciones -->
-                        <CollectionView ItemsSource="{Binding Habitaciones}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout Padding="10">
-                                        <Image Source="{Binding Tipo_Habitacion.Imagen}"/>
-                                        <Label Text="{Binding Tipo_Habitacion.Nombre}"/>
-                                        <Label Text="{Binding Tipo_Habitacion.Descripcion}"/>
-                                        <Label Text="{Binding Tipo_Habitacion.Capacidad}"/>
-                                        <Label Text="S/.{Binding Tipo_Habitacion.Precio}"/>
-                                        <Label Text="{Binding Num_Habitacion}" FontAttributes="Italic"/>
-                                        <Label Text="{Binding Estado}"/>
-                                        <!-- Aquí puedes agregar más campos de Habitacion si es necesario -->
-                                    </StackLayout>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </StackLayout>
+                    <Frame BorderColor="#E0E0E0" 
+                       CornerRadius="8" 
+                       Padding="10" 
+                       Margin="0,0,0,10" 
+                       HasShadow="True">
+                        <StackLayout>
+                            <Image Source="{Binding Tipo_Habitacion.Imagen}" 
+                               Aspect="AspectFill" 
+                               HeightRequest="150" 
+                               WidthRequest="300"
+                               Margin="0,0,0,10"
+                               VerticalOptions="Start"/>
+
+                            <Label Text="{Binding Num_Habitacion}" 
+                               FontSize="20" 
+                               FontAttributes="Bold" 
+                               TextColor="#333"/>
+
+                            <Label Text="{Binding Tipo_Habitacion.Descripcion}" 
+                               FontSize="14" 
+                               TextColor="#666" 
+                               Margin="0,0,0,5"/>
+
+                            <Label Text="{Binding Tipo_Habitacion.Capacidad}" 
+                               FontSize="14" 
+                               FontAttributes="Italic" 
+                               TextColor="#666"/>
+
+                            <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}" 
+                               FontSize="16" 
+                               FontAttributes="Bold" 
+                               TextColor="#007BFF"
+                               Margin="0,0,0,10"/>
+
+                            <Label Text="{Binding Estado, Converter={StaticResource EstadoConverter}}"
+                               FontSize="14" 
+                               FontAttributes="Bold" 
+                               TextColor="{Binding Estado, Converter={StaticResource EstadoColorConverter}}"
+                               HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button Text="Reservar" 
+                BackgroundColor="#007BFF" 
+                TextColor="White" 
+                Clicked="Reserva_Clicked" />
     </StackLayout>
 </ContentPage>
