@@ -12,7 +12,6 @@ namespace travel_app.Services
     public class ApiService
     {
         private static readonly HttpClient _client = new HttpClient();
-
         private readonly string _baseUrl = "http://192.168.0.5:4000/api/v1/";
         public async Task<T> GetAsync<T>(string endpoint)
         {

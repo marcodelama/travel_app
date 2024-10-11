@@ -24,7 +24,7 @@
                                         <Label Text="{Binding Tipo_Habitacion.Nombre}"/>
                                         <Label Text="{Binding Tipo_Habitacion.Descripcion}"/>
                                         <Label Text="{Binding Tipo_Habitacion.Capacidad}"/>
-                                        <Label Text="{Binding Tipo_Habitacion.Precio}"/>
+                                        <Label Text="S/.{Binding Tipo_Habitacion.Precio}"/>
                                         <Label Text="{Binding Num_Habitacion}" FontAttributes="Italic"/>
                                         <Label Text="{Binding Estado}"/>
                                         <!-- Aquí puedes agregar más campos de Habitacion si es necesario -->

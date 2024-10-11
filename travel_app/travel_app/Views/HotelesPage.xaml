@@ -4,53 +4,90 @@
              xmlns:vm="clr-namespace:travel_app.ViewModels" 
              xmlns:local="clr-namespace:travel_app.Converters"
              x:Class="travel_app.Views.HotelesPage"
+             BackgroundColor="#F5F5F5"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
         <vm:HotelViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:StarVisibilityConverter x:Key="StarVisibilityConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout>
-        <Label Text="Hoteles" HorizontalTextAlignment="Center" TextColor="BLACK" FontSize="36"/>
+    <StackLayout Padding="10">
+        <Label Text="Hoteles" 
+               HorizontalTextAlignment="Center" 
+               TextColor="#333333" 
+               FontSize="36" 
+               FontAttributes="Bold" 
+               Margin="0,20,0,10"/>
+
         <CollectionView ItemsSource="{Binding Hoteles}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Spacing="5">
-                        <Image Source="{Binding Imagen}" Aspect="AspectFill" HeightRequest="200" WidthRequest="300"/>
-                        <StackLayout Padding="20">
-                            <Label Text="{Binding Nombre}"/>
-                            <StackLayout Orientation="Horizontal" Spacing="2">
-                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=1}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=2}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=3}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=4}" HeightRequest="20" WidthRequest="20"/>
-                                <Image Source="star.png" IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=5}" HeightRequest="20" WidthRequest="20"/>
-                                <Label Text="{Binding Valoracion}"/>
+                    <Frame Padding="0" Margin="10" CornerRadius="15" HasShadow="True" BackgroundColor="White">
+                        <StackLayout Spacing="10">
+                            <Image Source="{Binding Imagen}" 
+                                   Aspect="AspectFill" 
+                                   HeightRequest="200" 
+                                   WidthRequest="300" 
+                                   HorizontalOptions="Center"
+                                   Margin="0,0,0,10"/>
+
+                            <StackLayout Padding="15">
+                                <Label Text="{Binding Nombre}" 
+                                       FontAttributes="Bold" 
+                                       FontSize="24" 
+                                       TextColor="#333333"/>
+
+                                <StackLayout Orientation="Horizontal" Spacing="2">
+                                    <Image Source="star.png" 
+                                           IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=1}" 
+                                           HeightRequest="20" WidthRequest="20"/>
+                                    <Image Source="star.png" 
+                                           IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=2}" 
+                                           HeightRequest="20" WidthRequest="20"/>
+                                    <Image Source="star.png" 
+                                           IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=3}" 
+                                           HeightRequest="20" WidthRequest="20"/>
+                                    <Image Source="star.png" 
+                                           IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=4}" 
+                                           HeightRequest="20" WidthRequest="20"/>
+                                    <Image Source="star.png" 
+                                           IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=5}" 
+                                           HeightRequest="20" WidthRequest="20"/>
+                                    <Label Text="{Binding Valoracion}" 
+                                           TextColor="#FFD700" 
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <Grid Padding="10,0,10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Direccion}" 
+                                           VerticalOptions="Center" 
+                                           Grid.Column="0" 
+                                           TextColor="#666666"/>
+
+                                    <Button Text="Más Info" 
+                                            VerticalOptions="Center" 
+                                            Clicked="OnDetailPage" 
+                                            CornerRadius="20" 
+                                            BackgroundColor="#4CAF50" 
+                                            TextColor="White" 
+                                            FontAttributes="Bold"
+                                            WidthRequest="100" 
+                                            Grid.Column="1"/>
+                                </Grid>
                             </StackLayout>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Label Text="{Binding Direccion}" 
-                                    VerticalOptions="Center"
-                                    Grid.Column="0"/>
-
-                                <Button Text="Más Info" 
-                                    VerticalOptions="Center" 
-                                    Clicked="OnDetailPage" 
-                                    CornerRadius="8" 
-                                    Grid.Column="1"/>       
-                            </Grid>
                         </StackLayout>
-                    </StackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
