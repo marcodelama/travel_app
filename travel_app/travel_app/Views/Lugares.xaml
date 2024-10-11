@@ -80,13 +80,14 @@
                                     VerticalOptions="Center"
                                     Clicked="OnDetailsButtonClicked"/>
 
-                                    <Button Text="Hoteles"   
+                                    <Button x:Name="boton" 
+                                    Text="Hoteles"   
                                     BackgroundColor="#00BCD4"   
                                     TextColor="White"   
                                     WidthRequest="100"   
                                     HeightRequest="30"   
                                     BorderWidth="0"
-                                    x:Name="Login"/>
+                                    />
                                 </StackLayout>
                             </StackLayout>
                         </Grid>
