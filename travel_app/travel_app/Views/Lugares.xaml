@@ -13,18 +13,18 @@
 
                 <!-- Título -->
                 <Label Grid.Column="1"   
-               Text="Atracciones"   
-               FontSize="20"   
-               TextColor="Black"   
-               HorizontalOptions="Center"   
-               VerticalOptions="Center"/>
+                   Text="Atracciones"   
+                   FontSize="20"   
+                   TextColor="Black"   
+                   HorizontalOptions="Center"   
+                   VerticalOptions="Center"/>
 
                 <Image Grid.Column="2"   
-               Source="logo.png"   
-               WidthRequest="30"   
-               HeightRequest="30"   
-               HorizontalOptions="End"   
-               VerticalOptions="Center"/>
+                   Source="logo.png"   
+                   WidthRequest="30"   
+                   HeightRequest="30"   
+                   HorizontalOptions="End"   
+                   VerticalOptions="Center"/>
             </Grid>
 
             <!-- Lista de atracciones -->
@@ -33,9 +33,11 @@
 
                     <!-- Tarjeta 1 -->
                     <Frame BackgroundColor="#303030"   
-                   CornerRadius="10"   
-                   Padding="20"   
-                   Margin="0,20,0,0">
+                       CornerRadius="10"   
+                       Padding="20"   
+                       Margin="0,20,0,0"
+                       HeightRequest="280">
+                        <!-- Aumentar el alto del Frame -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -44,50 +46,50 @@
 
                             <!-- Imagen 1 -->
                             <Image Source="https://i.ibb.co/mvm3pTc/machupichu.jpg"   
-                           WidthRequest="190"   
-                           HeightRequest="190"   
-                           Aspect="AspectFill"  
-                           Grid.Column="0"/>
+                               WidthRequest="150"  
+                            HeightRequest="150"  
+                               Aspect="AspectFill"  
+                               Grid.Column="0"/>
 
                             <!-- Descripción y Botones -->
                             <StackLayout Grid.Column="1"   
-                                 Padding="20,0,0,0"  
-                                 VerticalOptions="FillAndExpand">
+                                     Padding="20,0,0,0"  
+                                     VerticalOptions="FillAndExpand">
                                 <Label Text="Machu Pichu"   
-                               TextColor="White"   
-                               FontAttributes="Bold"   
-                               FontSize="14"  
-                               VerticalOptions="Start"/>
+                                   TextColor="White"   
+                                   FontAttributes="Bold"   
+                                   FontSize="14"  
+                                   VerticalOptions="Start"/>
 
                                 <Label Text="Machu Picchu, es una joya inca llena de historia y misterio. Sus impresionantes paisajes y antiguas construcciones te transportan a otra era, ofreciendo una experiencia única de aventura y conexión con la naturaleza. ¡Un destino imperdible!"   
-                               TextColor="LightGray"   
-                               FontSize="12"  
-                               LineBreakMode="WordWrap"  
-                               VerticalOptions="StartAndExpand"/>
+                                   TextColor="LightGray"   
+                                   FontSize="12"  
+                                   LineBreakMode="WordWrap"  
+                                   VerticalOptions="StartAndExpand"/>
 
-                                <!-- Botones de acción debajo de la descripción -->
-                                <StackLayout Orientation="Horizontal"   
-                                     HorizontalOptions="End"   
-                                     Margin="0,10,0,0">
+                                <!-- Botones de acción uno debajo del otro -->
+                                <StackLayout Orientation="Vertical"   
+                                         HorizontalOptions="End"   
+                                         Margin="0,10,0,0">
                                     <Button Text="Ver más"   
-                                    FontSize="12"  
-                                    BackgroundColor="#6B6B6B"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="40"   
-                                    Margin="0,0,5,0"   
-                                    BorderWidth="0"  
-                                    VerticalOptions="Center"
-                                    Clicked="OnDetailsButtonClicked"/>
+                                        FontSize="12"  
+                                        BackgroundColor="#6B6B6B"   
+                                        TextColor="White"   
+                                        WidthRequest="100"   
+                                        HeightRequest="40"   
+                                        Margin="0,0,5,0"   
+                                        BorderWidth="0"  
+                                        VerticalOptions="Center"
+                                        Clicked="OnDetailsButtonClicked"/>
 
-                                    <Button x:Name="boton" 
-                                    Text="Hoteles"   
-                                    BackgroundColor="#00BCD4"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="30"   
-                                    BorderWidth="0"
-                                    />
+                                    <Button x:Name="boton"
+                                        Text="Hoteles"   
+                                        BackgroundColor="#00BCD4"   
+                                        TextColor="White"   
+                                        WidthRequest="100"   
+                                        HeightRequest="40"   
+                                        BorderWidth="0"
+                                        VerticalOptions="Center"/>
                                 </StackLayout>
                             </StackLayout>
                         </Grid>
@@ -95,9 +97,11 @@
 
                     <!-- Tarjeta 2 -->
                     <Frame BackgroundColor="#303030"   
-                   CornerRadius="10"   
-                   Padding="20"   
-                   Margin="0,20,0,0">
+                       CornerRadius="10"   
+                       Padding="20"   
+                       Margin="0,20,0,0"
+                       HeightRequest="280">
+                        <!-- Aumentar el alto del Frame -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -106,61 +110,61 @@
 
                             <!-- Imagen 2 -->
                             <Image Source="https://i.ibb.co/CJnsZBR/imagen2.jpg"   
-                           WidthRequest="190"   
-                           HeightRequest="190"  
-                           Aspect="AspectFill"  
-                           Grid.Column="0"/>
+                               WidthRequest="150"   
+                               HeightRequest="150"  
+                               Aspect="AspectFill"  
+                               Grid.Column="0"/>
 
                             <!-- Descripción y Botones -->
                             <StackLayout Grid.Column="1"   
-                                 Padding="20,0,0,0"  
-                                 VerticalOptions="FillAndExpand">
+                                     Padding="20,0,0,0"  
+                                     VerticalOptions="FillAndExpand">
                                 <Label Text="Valle del Colca"   
-                               TextColor="White"   
-                               FontAttributes="Bold"   
-                               FontSize="14"  
-                               VerticalOptions="Start"/>
+                                   TextColor="White"   
+                                   FontAttributes="Bold"   
+                                   FontSize="14"  
+                                   VerticalOptions="Start"/>
 
                                 <Label Text="El Valle del Colca, famoso por sus impresionantes cañones y vistas panorámicas, es hogar del majestuoso cóndor andino. Su rica cultura y paisajes te invitan a una aventura inolvidable. ¡Un destino imperdible!"  
-                               TextColor="LightGray"   
-                               FontSize="12"  
-                               LineBreakMode="WordWrap"  
-                               VerticalOptions="StartAndExpand"/>
+                                   TextColor="LightGray"   
+                                   FontSize="12"  
+                                   LineBreakMode="WordWrap"  
+                                   VerticalOptions="StartAndExpand"/>
 
-                                <!-- Botones de acción debajo de la descripción -->
-                                <StackLayout Orientation="Horizontal"   
-                                     HorizontalOptions="End"   
-                                     Margin="0,10,0,0">
-                                    <!-- Añadir margen para separación -->
-
+                                <!-- Botones de acción uno debajo del otro -->
+                                <StackLayout Orientation="Vertical"   
+                                         HorizontalOptions="End"   
+                                         Margin="0,10,0,0">
                                     <Button Text="Ver más"
-                                    FontSize="12"
-                                    BackgroundColor="#6B6B6B"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="40"   
-                                    Margin="0,0,5,0"   
-                                    BorderWidth="0"
-                                    VerticalOptions="Center"
-                                    Clicked="OnValleButtonClicked"/>
+                                        FontSize="12"
+                                        BackgroundColor="#6B6B6B"   
+                                        TextColor="White"   
+                                        WidthRequest="100"   
+                                        HeightRequest="40"   
+                                        Margin="0,0,5,0"   
+                                        BorderWidth="0"
+                                        VerticalOptions="Center"
+                                        Clicked="OnValleButtonClicked"/>
 
                                     <Button Text="Hoteles"   
-                                    BackgroundColor="#00BCD4"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="30"   
-                                    BorderWidth="0"/>
+                                        BackgroundColor="#00BCD4"   
+                                        TextColor="White"   
+                                        WidthRequest="100"   
+                                        HeightRequest="40"   
+                                        BorderWidth="0"
+                                        VerticalOptions="Center"/>
                                 </StackLayout>
                             </StackLayout>
                         </Grid>
                     </Frame>
 
-                    <!-- Tercera tarjeta -->
-
+                    <!-- Tarjeta 3 (ajustar igual que las anteriores) -->
                     <Frame BackgroundColor="#303030"   
-                   CornerRadius="10"   
-                   Padding="20"   
-                   Margin="0,20,0,0">
+                       CornerRadius="10"   
+                       Padding="20"   
+                       Margin="0,20,0,0"
+                       HeightRequest="280">
+                        <!-- Ajustar el alto del Frame -->
 
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -170,113 +174,50 @@
 
                             <!-- Imagen -->
                             <Image Source="https://i.ibb.co/1MWKcXQ/imagen3.jpg"   
-                           WidthRequest="190"   
-                           HeightRequest="190"
-                           Aspect="AspectFill"
-                           Grid.Column="0"/>
+                               WidthRequest="150"   
+                               HeightRequest="150"
+                               Aspect="AspectFill"
+                               Grid.Column="0"/>
 
                             <!-- Descripción y Botones -->
                             <StackLayout Grid.Column="1"   
-                                 Padding="20,0,0,0"
-                                 VerticalOptions="FillAndExpand">
+                                     Padding="20,0,0,0"
+                                     VerticalOptions="FillAndExpand">
                                 <Label Text="Titicaca"   
-                               TextColor="White"   
-                               FontAttributes="Bold"   
-                               FontSize="14"
-                               VerticalOptions="Start"/>
+                                   TextColor="White"   
+                                   FontAttributes="Bold"   
+                                   FontSize="14"
+                                   VerticalOptions="Start"/>
 
                                 <Label Text="La Reserva Nacional de Titicaca, destaca por su biodiversidad y paisajes espectaculares. Sus islas flotantes y comunidades indígenas ofrecen una experiencia cultural única. ¡Un destino fascinante para los amantes de la naturaleza!"   
-                               TextColor="LightGray"   
-                               FontSize="12"  
-                               LineBreakMode="WordWrap"
-                               VerticalOptions="StartAndExpand"/>
+                                   TextColor="LightGray"   
+                                   FontSize="12"  
+                                   LineBreakMode="WordWrap"
+                                   VerticalOptions="StartAndExpand"/>
 
-                                <!-- Botones de acción debajo de la descripción -->
-                                <StackLayout Orientation="Horizontal"   
-                                     HorizontalOptions="End"   
-                                     Margin="0,10,0,0">
-                                    <!-- Añadir margen para separación -->
-
+                                <!-- Botones de acción uno debajo del otro -->
+                                <StackLayout Orientation="Vertical"   
+                                         HorizontalOptions="End"   
+                                         Margin="0,10,0,0">
                                     <Button Text="Ver más"
-                                    FontSize="12"
-                                    BackgroundColor="#6B6B6B"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="40"   
-                                    Margin="0,0,5,0"   
-                                    BorderWidth="0"
-                                    VerticalOptions="Center"
-                                    Clicked="OnResdeButtonClicked"/>
+                                        FontSize="12"
+                                        BackgroundColor="#6B6B6B"   
+                                        TextColor="White"   
+                                        WidthRequest="100"   
+                                        HeightRequest="40"   
+                                        Margin="0,0,5,0"   
+                                        BorderWidth="0"
+                                        VerticalOptions="Center"
+                                        Clicked="OnResdeButtonClicked"/>
+
                                     <Button Text="Hoteles"   
-                                    BackgroundColor="#00BCD4"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="30"   
-                                    BorderWidth="0"/>
+                                        BackgroundColor="#00BCD4"   
+                                        TextColor="White"   
+                                        WidthRequest="100"   
+                                        HeightRequest="40"   
+                                        BorderWidth="0"
+                                        VerticalOptions="Center"/>
                                 </StackLayout>
-
-                            </StackLayout>
-                        </Grid>
-                    </Frame>
-                    <!-- Cuarta tarjeta -->
-
-                    <Frame BackgroundColor="#303030"   
-                   CornerRadius="10"   
-                   Padding="20"   
-                   Margin="0,20,0,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <!-- Imagen -->
-                            <Image Source="https://i.ibb.co/ZgvC44J/imagen4.jpg"   
-                           WidthRequest="190"   
-                           HeightRequest="190"
-                           Aspect="AspectFill"
-                           Grid.Column="0"/>
-
-                            <!-- Descripción y Botones -->
-                            <StackLayout Grid.Column="1"   
-                                 Padding="20,0,0,0"
-                                 VerticalOptions="FillAndExpand">
-                                <Label Text="Arequipa"   
-                               TextColor="White"   
-                               FontAttributes="Bold"   
-                               FontSize="14"
-                               VerticalOptions="Start"/>
-
-                                <Label Text="Arequipa, conocida como la Ciudad Blanca, el majestuoso volcán Misti de fondo. Su rica historia, deliciosa gastronomía y vibrante cultura hacen de esta ciudad un destino fascinante. ¡Un lugar que no te puedes perder!"   
-                               TextColor="LightGray"   
-                               FontSize="12"  
-                               LineBreakMode="WordWrap"
-                               VerticalOptions="StartAndExpand"/>
-
-                                <!-- Botones de acción debajo de la descripción -->
-                                <StackLayout Orientation="Horizontal"   
-                                     HorizontalOptions="End"   
-                                     Margin="0,10,0,0">
-                                    <!-- Añadir margen para separación -->
-
-                                    <Button Text="Ver más"
-                                    FontSize="12"
-                                    BackgroundColor="#6B6B6B"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="40"   
-                                    Margin="0,0,5,0"   
-                                    BorderWidth="0"
-                                    VerticalOptions="Center"
-                                    Clicked="OnArdeButtonClicked"/>
-                                    <Button Text="Hoteles"   
-                                    BackgroundColor="#00BCD4"   
-                                    TextColor="White"   
-                                    WidthRequest="100"   
-                                    HeightRequest="30"   
-                                    BorderWidth="0"/>
-                                </StackLayout>
-
                             </StackLayout>
                         </Grid>
                     </Frame>
