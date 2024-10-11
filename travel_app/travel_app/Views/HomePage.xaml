@@ -30,6 +30,9 @@
                 <!-- Machu Picchu -->
                 <!-- Machu Picchu -->
                 <Frame Margin="30" Padding="20" BackgroundColor="#F9AA04" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMachuPichuTapped" />
+                    </Frame.GestureRecognizers>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />

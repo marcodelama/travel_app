@@ -18,8 +18,13 @@ namespace travel_app.Views
         }
         private async void OnHotelesTapped(object sender, EventArgs e)
         {
-            // Navega a la página de hoteles
+
             await Navigation.PushAsync(new HotelesPage());
+        }
+        private async void OnMachuPichuTapped(object sender, EventArgs e)
+        {
+
+            await Navigation.PushAsync(new Lugares());
         }
     }
 }
