@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using travel_app.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,7 +15,7 @@ namespace travel_app.Views
         public Lugares()
         {
             InitializeComponent();
-            Login.Clicked += async (sender, e) =>
+            boton.Clicked += async (sender, e) =>
             {
                 await Navigation.PushAsync(new HotelesPage());
             };

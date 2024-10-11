@@ -21,14 +21,14 @@
         <Label Text="Hoteles" 
                HorizontalTextAlignment="Center" 
                TextColor="#333333" 
-               FontSize="36" 
+               FontSize="30" 
                FontAttributes="Bold" 
                Margin="0,20,0,10"/>
 
         <CollectionView ItemsSource="{Binding Hoteles}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="0" Margin="10" CornerRadius="15" HasShadow="True" BackgroundColor="White">
+                    <Frame Padding="0" Margin="10,10,10,60" CornerRadius="15" HasShadow="True" BackgroundColor="White">
                         <StackLayout Spacing="10">
                             <Image Source="{Binding Imagen}" 
                                    Aspect="AspectFill" 
@@ -43,7 +43,7 @@
                                        FontSize="24" 
                                        TextColor="#333333"/>
 
-                                <StackLayout Orientation="Horizontal" Spacing="2">
+                                <StackLayout Orientation="Horizontal" Spacing="3">
                                     <Image Source="star.png" 
                                            IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=1}" 
                                            HeightRequest="20" WidthRequest="20"/>
@@ -60,14 +60,14 @@
                                            IsVisible="{Binding Valoracion, Converter={StaticResource StarVisibilityConverter}, ConverterParameter=5}" 
                                            HeightRequest="20" WidthRequest="20"/>
                                     <Label Text="{Binding Valoracion}" 
-                                           TextColor="#FFD700" 
+                                           TextColor="#666666" 
                                            FontAttributes="Bold"/>
                                 </StackLayout>
 
                                 <Grid Padding="10,0,10,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
                                     <Label Text="{Binding Direccion}" 
@@ -78,11 +78,9 @@
                                     <Button Text="Más Info" 
                                             VerticalOptions="Center" 
                                             Clicked="OnDetailPage" 
-                                            CornerRadius="20" 
+                                            CornerRadius="8" 
                                             BackgroundColor="#4CAF50" 
                                             TextColor="White" 
-                                            FontAttributes="Bold"
-                                            WidthRequest="100" 
                                             Grid.Column="1"/>
                                 </Grid>
                             </StackLayout>
