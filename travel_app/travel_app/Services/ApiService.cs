@@ -12,9 +12,13 @@ namespace travel_app.Services
     {
         private static readonly HttpClient _client = new HttpClient();
 
+<<<<<<< HEAD
+        private readonly string _baseUrl = "http://192.168.1.8:4000/api/v1/";
+=======
 
         private readonly string _baseUrl = "http://192.168.0.106:4000/api/v1/";
 
+>>>>>>> 7a24cdca575e659c627bb7b10e9899f88e13b603
         public async Task<T> GetAsync<T>(string endpoint)
         {
             try

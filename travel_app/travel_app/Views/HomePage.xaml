@@ -2,8 +2,12 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="travel_app.Views.HomePage"
+            xmlns:vm="clr-namespace:travel_app.ViewModels"
             NavigationPage.HasNavigationBar="False">
 
+    <ContentPage.BindingContext>
+        <vm:DetalleHotelViewModel />
+    </ContentPage.BindingContext>
     <!-- Primera pestaña -->
     <ContentPage Title="Inicio">
         <ScrollView>
@@ -24,6 +28,7 @@
                 </Frame>
 
                 <!-- Machu Picchu -->
+                <!-- Machu Picchu -->
                 <Frame Margin="30" Padding="20" BackgroundColor="#F9AA04" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnMachuPichuTapped" />
@@ -35,13 +40,35 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Padding="5" FontAttributes="Bold" Grid.Column="0" Text="MACHU PICCHU" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
-                        <Label Grid.Row="1" Grid.Column="0" Text="Machu Picchu, la joya de los Andes, es una antigua ciudad inca ubicada en lo alto de las montañas de Perú. Famosa por su impresionante arquitectura y vistas espectaculares, es uno de los destinos turísticos más emblemáticos del mundo. ¡Ven y descubre la magia de este sitio milenario!" FontSize="12" TextColor="#333333" VerticalOptions="Center"/>
-                        <Image Grid.Row="1" x:Name="img" Source="https://i.ibb.co/pLkTbGp/Imagen-de-Whats-App-2024-10-03-a-las-21-37-35-cbd1b25e.jpg" Grid.Column="1" HeightRequest="160" WidthRequest="160" Aspect="AspectFill" Margin="10,2,10,10" VerticalOptions="Start"/>
+
+                        <!-- Slider de imágenes para Machu Picchu -->
+                        <CarouselView Grid.Row="0" HeightRequest="160" WidthRequest="300" HorizontalOptions="Center" ItemsLayout="HorizontalList">
+                            <CarouselView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>https://i.ibb.co/pLkTbGp/Imagen-de-Whats-App-2024-10-03-a-las-21-37-35-cbd1b25e.jpg</x:String>
+                                    <x:String>https://i.ibb.co/CJnsZBR/imagen2.jpg</x:String>
+                                    <x:String>https://i.ibb.co/1MWKcXQ/imagen3.jpg</x:String>
+                                    <x:String>https://i.ibb.co/ZgvC44J/imagen4.jpg</x:String>
+                                </x:Array>
+                            </CarouselView.ItemsSource>
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}" Aspect="AspectFill" />
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+
+                        <!-- Texto debajo del slider -->
+                        <StackLayout Grid.Row="1" Padding="10" HorizontalOptions="Center">
+                            <Label FontAttributes="Bold" Text="MACHU PICCHU" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="Machu Picchu, la joya de los Andes, es una antigua ciudad inca ubicada en lo alto de las montañas de Perú. Famosa por su impresionante arquitectura y vistas espectaculares, es uno de los destinos turísticos más emblemáticos del mundo. ¡Ven y descubre la magia de este sitio milenario!"
+                   FontSize="12" TextColor="#333333" HorizontalOptions="Center" />
+                        </StackLayout>
                     </Grid>
                 </Frame>
+
+
 
                 <!-- Hoteles -->
                 <Frame Margin="30" Padding="20" BackgroundColor="#E8B75E" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
@@ -55,13 +82,34 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="1" Padding="5" FontAttributes="Bold" Text="HOTELES" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
-                        <Label Grid.Row="1" Grid.Column="1" Text="Inkaterra Hacienda Urubamba es un lujoso hotel ecológico en el corazón del Valle Sagrado de los Incas, rodeado de impresionantes paisajes andinos. Combina elegancia rústica con un enfoque en la sostenibilidad, ofreciendo una experiencia relajante. ¡Descubre el encanto del Perú!" FontSize="12" TextColor="#333333" VerticalOptions="Center"/>
-                        <Image Grid.Row="1" x:Name="img2" Source="https://i.ibb.co/N1Py2ks/Imagen-de-Whats-App-2024-10-03-a-las-21-37-54-3c0be505.jpg" Grid.Column="0" HeightRequest="160" WidthRequest="160" Aspect="AspectFill" Margin="10,2,10,10" VerticalOptions="Start"/>
+
+                        <!-- Slider de imágenes para Hoteles -->
+                        <CarouselView Grid.Row="0" HeightRequest="160" WidthRequest="300" HorizontalOptions="Center" ItemsLayout="HorizontalList">
+                            <CarouselView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>https://i.ibb.co/N1Py2ks/Imagen-de-Whats-App-2024-10-03-a-las-21-37-54-3c0be505.jpg</x:String>
+                                    <x:String>https://i.ibb.co/3m6d6Dg/download.jpg</x:String>
+                                    <x:String>https://i.ibb.co/Y2wsv88/13-mejores-Hoteles-en-Cusco-Peru.jpg</x:String>
+                                    <x:String>https://i.ibb.co/C5cz8H1/340429700.jpg</x:String>
+                                </x:Array>
+                            </CarouselView.ItemsSource>
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}" Aspect="AspectFill" />
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+
+                        <!-- Texto debajo del slider -->
+                        <StackLayout Grid.Row="1" Padding="10" HorizontalOptions="Center">
+                            <Label FontAttributes="Bold" Text="HOTELES" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="Inkaterra Hacienda Urubamba es un lujoso hotel ecológico en el corazón del Valle Sagrado de los Incas, rodeado de impresionantes paisajes andinos. Combina elegancia rústica con un enfoque en la sostenibilidad, ofreciendo una experiencia relajante. ¡Descubre el encanto del Perú!" 
+                   FontSize="12" TextColor="#333333" HorizontalOptions="Center" />
+                        </StackLayout>
                     </Grid>
                 </Frame>
+
 
 
                 <!-- Carousel -->
