@@ -16,5 +16,10 @@ namespace travel_app.Views
         {
             InitializeComponent();
         }
+        private async void OnHotelesTapped(object sender, EventArgs e)
+        {
+            // Navega a la pÃ¡gina de hoteles
+            await Navigation.PushAsync(new HotelesPage());
+        }
     }
 }

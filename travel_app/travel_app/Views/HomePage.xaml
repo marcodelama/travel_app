@@ -41,6 +41,9 @@
 
                 <!-- Hoteles -->
                 <Frame Margin="30" Padding="20" BackgroundColor="#E8B75E" CornerRadius="30" HasShadow="True" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHotelesTapped" />
+                    </Frame.GestureRecognizers>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
