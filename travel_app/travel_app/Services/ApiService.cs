@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace travel_app.Services
     {
         private static readonly HttpClient _client = new HttpClient();
 
-        private readonly string _baseUrl = "http://192.168.138.142:4000/api/v1/";
+        private readonly string _baseUrl = "http://192.168.0.5:4000/api/v1/";
         public async Task<T> GetAsync<T>(string endpoint)
         {
             try
@@ -42,6 +43,9 @@ namespace travel_app.Services
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 var response = await client.PostAsync(_baseUrl + endpoint, content);
+
+                Debug.WriteLine("Enviando el siguiente JSON:");
+                Debug.WriteLine(json);
 
                 if (response.IsSuccessStatusCode)
                 {

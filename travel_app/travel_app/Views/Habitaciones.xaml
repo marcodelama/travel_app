@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:travel_app.ViewModels"
+             x:Class="travel_app.Views.Habitaciones"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:DetalleHotelViewModel />
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Label Text="Habitaciones" HorizontalTextAlignment="Center" TextColor="BLACK" FontSize="20"/>
+        <CollectionView ItemsSource="{Binding Hoteles}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <!-- CollectionView para Habitaciones -->
+                        <CollectionView ItemsSource="{Binding Habitaciones}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="10">
+                                        <Image Source="{Binding Tipo_Habitacion.Imagen}"/>
+                                        <Label Text="{Binding Tipo_Habitacion.Nombre}"/>
+                                        <Label Text="{Binding Tipo_Habitacion.Descripcion}"/>
+                                        <Label Text="{Binding Tipo_Habitacion.Capacidad}"/>
+                                        <Label Text="{Binding Tipo_Habitacion.Precio}"/>
+                                        <Label Text="{Binding Num_Habitacion}" FontAttributes="Italic"/>
+                                        <Label Text="{Binding Estado}"/>
+                                        <!-- Aquí puedes agregar más campos de Habitacion si es necesario -->
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

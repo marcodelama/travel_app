@@ -1,25 +1,22 @@
-﻿using Newtonsoft.Json;
-using Rg.Plugins.Popup.Extensions;
-using Rg.Plugins.Popup.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using travel_app.Models;
 using travel_app.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace travel_app.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetalleHotel : ContentPage
-    {
-        private int hotelId;
-        public DetalleHotel(int id)
-        {
-            InitializeComponent();
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class Habitaciones : ContentPage
+	{
+		private int hotelId;
+		public Habitaciones (int id)
+		{
+			InitializeComponent();
             BindingContext = new DetalleHotelViewModel();
             hotelId = id;
         }
@@ -32,11 +29,6 @@ namespace travel_app.Views
             {
                 viewModel.LoadHotelDetailsCommand.Execute(hotelId); // Ejecutar el comando para cargar los detalles del hotel
             }
-        }
-
-        private async void VerHabitaciones(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Habitaciones(hotelId));
         }
     }
 }

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using travel_app.Models;
 using travel_app.Services;
-using travel_app.Views.PopUp;
 using Xamarin.Forms;
 
 namespace travel_app.ViewModels
@@ -31,6 +30,7 @@ namespace travel_app.ViewModels
 
         public async Task LoadHotelDetails(int id)
         {
+            Debug.WriteLine("id", id);
             var responseObject = await _apiService.GetAsync<Response<Hotel>>($"hotel/{id}");
 
             string jsonResponse = JsonConvert.SerializeObject(responseObject, Formatting.Indented);

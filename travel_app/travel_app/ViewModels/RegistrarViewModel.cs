@@ -5,6 +5,8 @@ using travel_app.Services;
 using System.Threading.Tasks;
 using System;
 using travel_app;
+using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace travel_app.ViewModels
 {
@@ -123,6 +125,8 @@ namespace travel_app.ViewModels
 
             var apiService = new ApiService();
             var resultado = await apiService.PostAsync("usuario/cliente/create", clienteData);
+
+            Debug.WriteLine("Datos del cliente (JSON): " + clienteData);
 
             await App.Current.MainPage.DisplayAlert("Éxito", $"Usuario registrado: Bienvenido, {nombre}", "OK");
         }
