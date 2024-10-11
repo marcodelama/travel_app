@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace travel_app.Views
 {
-    public partial class Inicio : TabbedPage
+    public partial class Inicio : ContentPage
     {
         private ApiService http;
         public Inicio()

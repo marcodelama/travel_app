@@ -5,51 +5,65 @@
                  xmlns:vm="clr-namespace:travel_app.ViewModels"
                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                 x:Class="travel_app.Views.PopUp.HabitacionesPopup">
+                 x:Class="travel_app.Views.PopUp.HabitacionesPopup"
+                 BackgroundColor="Transparent">
 
     <ContentPage.BindingContext>
         <vm:DetalleHotelViewModel />
     </ContentPage.BindingContext>
-    
+
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation
-            PositionIn="Center"
-            PositionOut="Center"
-            ScaleIn="1.2"
-            ScaleOut="0.8"
-            DurationIn="400"
-            DurationOut="300"
-            EasingIn="SinOut"
-            EasingOut="SinIn"
-            HasBackgroundAnimation="False"/>
+            PositionIn="Left"
+            PositionOut="Left"
+            ScaleIn="1"
+            ScaleOut="1"
+            DurationIn="0"
+            DurationOut="0"
+            EasingIn="Linear"
+            EasingOut="Linear"
+            HasBackgroundAnimation="False" />
     </pages:PopupPage.Animation>
 
-    <AbsoluteLayout Margin="30">
-        <Frame BackgroundColor="#121212" CornerRadius="8" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+    <AbsoluteLayout BackgroundColor="Transparent">
+        <Frame BackgroundColor="White" CornerRadius="0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
             <StackLayout>
-                <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center"/>
-                <CollectionView ItemsSource="{Binding Hoteles}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout VerticalOptions="CenterAndExpand">
-                                <CollectionView ItemsSource="{Binding Habitaciones}" VerticalOptions="FillAndExpand">
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout Padding="10">
-                                                <Label Text="{Binding Num_Habitacion}" FontSize="Small" TextColor="White"/>
-                                                <Label Text="{Binding Estado}" FontSize="Small" TextColor="White"/>
-                                                <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}" FontSize="Small" TextColor="White"/>
-                                            </StackLayout>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-                <Button Text="Cerrar" Clicked="CerrarHabitaciones" HorizontalOptions="Center"/>
+                <Label Text="Lista de Habitaciones" FontSize="Large" HorizontalOptions="Center" TextColor="#121212" />
+
+                <!-- ScrollView alrededor del CollectionView -->
+                <ScrollView>
+                    <CollectionView ItemsSource="{Binding Hoteles}" VerticalOptions="FillAndExpand">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout VerticalOptions="CenterAndExpand" Spacing="50">
+                                    <CollectionView ItemsSource="{Binding Habitaciones}" VerticalOptions="FillAndExpand">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Image Source="{Binding Tipo_Habitacion.Imagen}" Aspect="AspectFill" HeightRequest="200" WidthRequest="300"/>
+                                                    <Label Text="{Binding Num_Habitacion}" FontSize="Medium" TextColor="Black" />
+                                                    <Label Text="{Binding Tipo_Habitacion.Precio, StringFormat='Precio: {0:C}'}" FontSize="Medium" TextColor="Black" />
+                                                    <Button Text="Reservar" 
+                                                            BackgroundColor="green"
+                                                            TextColor="White"
+                                                            Margin="10,30,30,5"
+                                                            Clicked="Reservar_Clicked"/>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+
+                <!-- Botón VER dentro del StackLayout -->
+                <Button Text="VER" Clicked="CerrarHabitaciones" HorizontalOptions="Center" Margin="0,20,0,0" />
             </StackLayout>
         </Frame>
-    </AbsoluteLayout>
 
+        <!-- Contenedor blanco de 80 píxeles de alto -->
+        <BoxView HeightRequest="80" BackgroundColor="White" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 0" />
+    </AbsoluteLayout>
 </popup:PopupPage>

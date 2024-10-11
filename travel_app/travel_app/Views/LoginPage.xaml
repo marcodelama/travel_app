@@ -9,7 +9,7 @@
     </TabbedPage.BindingContext>
 
     <ContentPage Title="Iniciar Sesión">
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
             <Image Source="https://i.ibb.co/SRdN8M4/logo-removebg-preview.png" 
              HeightRequest="130" 
@@ -26,37 +26,36 @@
              Margin="10"
              BorderColor="White" 
              BackgroundColor="White" 
-             CornerRadius="30"
-             HasShadow="True">
-                <Entry Placeholder="correo" 
-               Keyboard="Email"
-               Text="{Binding Username}"
-               HorizontalOptions="Center"
-               WidthRequest="300"
-               BackgroundColor="Transparent"/>
+             CornerRadius="8">
+                <Entry Placeholder="Correo" 
+                    Keyboard="Email"
+                    Text="{Binding Username}"
+                    HorizontalOptions="Center"
+                    WidthRequest="300"
+                    BackgroundColor="Transparent"/>
             </Frame>
 
             <Frame Padding="15" 
              Margin="10"
              BorderColor="White" 
              BackgroundColor="White" 
-             CornerRadius="30"
-             HasShadow="True">
-                <Entry Placeholder="contraseña"
-               IsPassword="true"
-               Text="{Binding Password}"
-               HorizontalOptions="Center"
-               WidthRequest="300"
-               BackgroundColor="Transparent"/>
+             CornerRadius="8">
+                <Entry Placeholder="Contraseña"
+                    IsPassword="true"
+                    Text="{Binding Password}"
+                    HorizontalOptions="Center"
+                    WidthRequest="300"
+                    BackgroundColor="Transparent"/>
             </Frame>
 
             <Button Text="Iniciar Sesión"
               BackgroundColor="#FF6600"
               TextColor="White"
-              CornerRadius="25"
+              CornerRadius="8"
               WidthRequest="250"
               HeightRequest="50"
               FontSize="18"
+              Margin="20,40,20,0"
               Command="{Binding LoginCommand}" />
 
         </StackLayout>

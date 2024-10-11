@@ -14,7 +14,15 @@ namespace travel_app.Views
     {
         public ReservaPage()
         {
+
             InitializeComponent();
+        }
+        private async void OnGuardarClicked(object sender, EventArgs e)
+        {
+            // Lógica para guardar la reserva (si es necesario)
+
+            // Mostrar mensaje de confirmación
+            await DisplayAlert("Reserva guardada", "La reserva ha sido guardada correctamente.", "OK");
         }
     }
 }

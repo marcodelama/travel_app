@@ -11,12 +11,12 @@ namespace travel_app.ViewModels
     public class RegistrarViewModel : INotifyPropertyChanged
     {
         private string nombre;
-    private string apellido;
-    private string dni;
-    private string telefono;
-    private string correo;
-    private string contraseña;
-    private bool isLoading;
+        private string apellido;
+        private string dni;
+        private string telefono;
+        private string correo;
+        private string contraseña;
+        private bool isLoading;
 
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -124,7 +124,7 @@ namespace travel_app.ViewModels
             var apiService = new ApiService();
             var resultado = await apiService.PostAsync("usuario/cliente/create", clienteData);
 
-            await App.Current.MainPage.DisplayAlert("Éxito", $"Usuario registrado: {resultado.Mensaje}", "OK");
+            await App.Current.MainPage.DisplayAlert("Éxito", $"Usuario registrado: Bienvenido, {nombre}", "OK");
         }
         catch (Exception ex)
         {

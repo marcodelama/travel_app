@@ -15,6 +15,10 @@ namespace travel_app.Views
         public Lugares()
         {
             InitializeComponent();
+            Login.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new HotelesPage());
+            };
         }
         async void OnDetailsButtonClicked(object sender, EventArgs e)
         {

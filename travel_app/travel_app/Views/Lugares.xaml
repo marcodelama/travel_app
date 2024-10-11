@@ -43,7 +43,7 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Imagen 1 -->
-                            <Image Source="machupichu.jpg"   
+                            <Image Source="https://i.ibb.co/mvm3pTc/machupichu.jpg"   
                            WidthRequest="190"   
                            HeightRequest="190"   
                            Aspect="AspectFill"  
@@ -85,7 +85,8 @@
                                     TextColor="White"   
                                     WidthRequest="100"   
                                     HeightRequest="30"   
-                                    BorderWidth="0"/>
+                                    BorderWidth="0"
+                                    x:Name="Login"/>
                                 </StackLayout>
                             </StackLayout>
                         </Grid>
@@ -103,7 +104,7 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Imagen 2 -->
-                            <Image Source="imagen2.jpg"   
+                            <Image Source="https://i.ibb.co/CJnsZBR/imagen2.jpg"   
                            WidthRequest="190"   
                            HeightRequest="190"  
                            Aspect="AspectFill"  
@@ -167,7 +168,7 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Imagen -->
-                            <Image Source="imagen3.jpg"   
+                            <Image Source="https://i.ibb.co/1MWKcXQ/imagen3.jpg"   
                            WidthRequest="190"   
                            HeightRequest="190"
                            Aspect="AspectFill"
@@ -229,7 +230,7 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Imagen -->
-                            <Image Source="imagen4.jpg"   
+                            <Image Source="https://i.ibb.co/ZgvC44J/imagen4.jpg"   
                            WidthRequest="190"   
                            HeightRequest="190"
                            Aspect="AspectFill"
